@@ -1,0 +1,47 @@
+body{
+    background-image: url(images/dirt.jpg);
+} main{
+    text-align: center;
+} #cartButton{
+    width: 100px;
+    height: 80px;
+} #upgrade{
+    height: 60px;
+    width: 300px;
+    margin-top: 20px;
+    border-radius: 6px;
+} #upgrade:active{
+    background-color: grey;
+    opacity: 0.5;
+} p{
+    font-family: 'Gochi Hand', cursive;
+    color: white;
+    font-size: 19.8px;
+} h1 {
+    font-family: 'Walter Turncoat', cursive;
+    color: white;
+} #minerButton{
+    width: 100px;
+    height: 80px;
+} #gemButton{
+    border-radius: 12px;
+    width: 350px;
+    height: 350px;
+    background-image: url("images/emrald.png");
+} #gemButton:active{
+    background-color: grey;
+    opacity: 0.5;
+} #cartButton{
+    border-radius: 6px;
+} #cartButton:active{
+    background-color: grey;
+    opacity: 0.5;
+}  #minerButton{
+    border-radius: 6px;
+} #minerButton:active{
+    background-color: grey;
+    opacity: 0.5;
+} ::selection {
+    color: white;
+    background: grey;
+  }
