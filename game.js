@@ -13,7 +13,7 @@ let minerPrice = document.getElementById("minerPrice");
 let resetButton = document.getElementById("resetButton");
 let gemTitleElement = document.getElementById("gemTitleText");
 let upgradeButton = document.getElementById("upgrade");
-let gems = 10000;
+let gems = 0;
 let clickValue = 1;
 let cartValue = 1;
 let cartAmmount = 7;
@@ -76,7 +76,7 @@ cartButton.addEventListener('click', function(){
 });
 
 let div = document.getElementById('gangse');
-let priceDiv = document.getElementById('text');
+let priceDiv = document.getElementById('price');
 
 saveButton.addEventListener('click', function(){
     console.log("save gems " + gems);
@@ -116,13 +116,13 @@ function Upgrade(){
     upgrade = true;
     gems -= gems;
     priceDiv.innerHTML = '<h1 id="diamonds">Diamond: 0<h1> <button id="saveFile">Save</button>  <button id="openFile">Open</button>'
-    div.innerHTML = '<input type="image" src="images/diamond.png" id="gemButton">';
-    diam.innerHTML = '<title id="diamondTitleText">Diamonds: 0</title>'
+    div.innerHTML = '<input type="image" alt="Diamonder" src="images/diamond.png" id="gemButton">';
+    diam.innerHTML = '<link href="https://fonts.googleapis.com/css?family=Gochi+Hand%7cWalter+Turncoat" rel="stylesheet"><script src="http://code.jquery.com/jquery-3.2.1.js" ></script><link rel="stylesheet" href="style.css"><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA-Compatible" content="ie=edge"><title id="diamondTitleText">Diamonds: 0</title>'
     gemButton = document.getElementById("gemButton");
     diamondTitleElement = document.getElementById("diamondTitleText");
     diamondElement = document.getElementById("diamonds");
     gems += 0;
-    clickValue = 1;
+    cartValue += 16;
     diamondElement.textContent = "Diamonds: " + gems;
     diamondTitleText.textContent = "Diamonds: " + gems;
     gemButton.addEventListener('click', function() {
@@ -139,13 +139,11 @@ function Upgrade(){
 function MinerClick(){
     if(upgrade == false){
         gems += clickValue;
-        clickValue = 1;
         gemElement.textContent = "Gems: " + gems;
         gemTitleText.textContent = "Gems: " + gems;
         diamondElement.textContent = "Diamonds: " + gems;
         diamondTitleText.textContent = "Diamonds: " + gems;
     } else{
-        clickValue = 1;
         gems += clickValue;
         diamondElement.textContent = "Diamonds: " + gems;
         diamondTitleText.textContent = "Diamonds: " + gems;
@@ -158,8 +156,7 @@ function MinerCart(){
             gemElement.textContent = "Gems: " + gems;
             gemTitleText.textContent = "Gems: " + gems;
         } else{
-            clickValue = 1;
-            gems += clickvalue * minerCart;    
+            gems += clickValue * minerCart;    
             diamondElement.textContent = "Diamonds: " + gems;
             diamondTitleText.textContent = "Diamonds: " + gems;
             }
@@ -169,8 +166,7 @@ function MinerCart(){
             gemElement.textContent = "Gems: " + gems;
             gemTitleText.textContent = "Gems: " + gems;
         } else{
-            clickValue = 1;
-            gems += clickvalue * cartValue;    
+            gems += clickValue * cartValue;    
             diamondElement.textContent = "Diamonds: " + gems;
             diamondTitleText.textContent = "Diamonds: " + gems;
             }
@@ -183,7 +179,7 @@ function MinerGem(){
             gemTitleText.textContent = "Gems: " + gems;
         } else{
             clickValue = 1;
-            gems += clickvalue * minerCart;    
+            gems += clickValue * minerCart;    
             diamondElement.textContent = "Diamonds: " + gems;
             diamondTitleText.textContent = "Diamonds: " + gems;
             }   
@@ -194,7 +190,7 @@ function MinerGem(){
                 gemTitleText.textContent = "Gems: " + gems;
             } else{
                 clickValue = 1;
-                gems += clickvalue * minerValue;    
+                gems += clickValue * minerValue;    
                 diamondElement.textContent = "Diamonds: " + gems;
                 diamondTitleText.textContent = "Diamonds: " + gems;
                 }
@@ -203,7 +199,8 @@ function MinerGem(){
 function ButtonCart(){
     cartBuy = true;
     clickValue = 1;
-        cartValue += 1;
+        cartValue += 3;
+        minerCart = cartValue + minerValue;
         gems -= purchasePriceCart * purchasePriceMCart;
         cartAmmount -= 1;
         cartBought += 1;
@@ -218,7 +215,8 @@ function ButtonCart(){
 function ButtonMiner(){
     minerBuy = true;
     clickValue = 1;
-        minerValue += 1;
+        minerValue += 6;
+        minerCart = cartValue + minerValue;
         gems -= purchasePriceMiner *purchasePriceMMiner;
         minerAmmount -= 1;
         minerBought += 1;
